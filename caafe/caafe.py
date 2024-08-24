@@ -181,8 +181,9 @@ def generate_features(
                 )
 
             except Exception as e:
-                display_method(f"Error in code execution. {type(e)} {e}")
-                display_method(f"```python\n{format_for_display(code)}\n```\n")
+                pass
+                #display_method(f"Error in code execution. {type(e)} {e}")
+                #display_method(f"```python\n{format_for_display(code)}\n```\n")
                 return e, None, None, None, None
 
             # Add target column back to df_train
@@ -248,7 +249,8 @@ def generate_features(
         try:
             code = generate_code(messages)
         except Exception as e:
-            display_method("Error in LLM API." + str(e))
+            pass
+            #display_method("Error in LLM API." + str(e))
             continue
         i = i + 1
         e, rocs, accs, old_rocs, old_accs = execute_and_evaluate_code_block(
